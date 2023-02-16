@@ -9,7 +9,7 @@ typedef struct s_player
     /* data */
     uint32_t id;
     uint32_t color;
-    uint8_t* data;
+    uint8_t* data;  //Pas utilisé
     uint32_t x;
     uint32_t y;
     int32_t credits;

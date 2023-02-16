@@ -34,7 +34,7 @@ void inits(int argc, char *argv[])
     screenSurface = SDL_GetWindowSurface(window);
     SDL_PixelFormat *format = screenSurface->format;
     init_colors(format);
-    actions_init();
+    actions_init(); //A modifier
     world_create_players();
     printf("inits done\n");
 }

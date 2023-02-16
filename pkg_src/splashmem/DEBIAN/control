@@ -1,0 +1,6 @@
+Package: splashmem
+Version: 1.0.0
+Architecture: amd64
+Maintainer: polytech
+Depends: libsdl2-2.0-0
+Description: Jeu en language C

@@ -16,6 +16,7 @@ SDL_Surface *screenSurface = NULL;
 /* ------------------------------------------------------------------------- */
 /*                                                                           */
 /* ------------------------------------------------------------------------- */
+
 int SDLCALL watch(void *userdata, SDL_Event *event)
 {
     if (event->type == SDL_APP_WILLENTERBACKGROUND)
@@ -40,6 +41,7 @@ int main(int argc, char *argv[])
     window = SDL_CreateWindow("SplashMem", SDL_WINDOWPOS_UNDEFINED,
                               SDL_WINDOWPOS_UNDEFINED, WIN_SIZE, WIN_SIZE,
                               SDL_WINDOW_SHOWN);
+    //  Regarde les events
     SDL_AddEventWatch(watch, NULL);
 
     if (argc != 5)

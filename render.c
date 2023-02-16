@@ -75,7 +75,7 @@ void main_loop()
             }
         }
 
-        /*************** */
+        /***************Deplacement des joueurs - code exemple a remplacer*/
 
         for (int i = 0; i < 2; i++)
         {
@@ -100,8 +100,9 @@ void main_loop()
         }
         /**************/
 
+        //  Update de la map
         render_map();
 
-        SDL_Delay(100);
+        SDL_Delay(10);
     }
 }

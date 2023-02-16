@@ -4,6 +4,7 @@ OBJS=$(SRCS:.c=.o)
 CFLAGS= -Wall -g2 -fPIC  # -DDEBUG
 LDFLAGS= -ldl -lSDL2
 EXE=splash
+#cc= g++ #compilateur c++
 
 players:
 	cd pl && $(MAKE)
@@ -11,6 +12,7 @@ players:
 all: players $(OBJS)
 	@echo $(SRCS) 
 	gcc  $(OBJS) $(LDFLAGS) -o $(EXE)
+	gcc  $(OBJS) $(LDFLAGS) -shared -o splash.so
 
 clean_pl:
 	cd pl && $(MAKE) clean
