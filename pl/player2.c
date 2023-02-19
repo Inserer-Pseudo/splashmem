@@ -3,6 +3,7 @@
 #define MAX_PLAY_ACTION 11
 
 char play_actions[] = {
+    /*
     ACTION_BOMB,
     ACTION_TELEPORT_L,
     ACTION_BOMB,
@@ -14,6 +15,8 @@ char play_actions[] = {
     ACTION_BOMB,
     ACTION_TELEPORT_D,
     ACTION_MOVE_D,
+    */
+    ACTION_MOVE_L;
 };
 
 char get_action()
