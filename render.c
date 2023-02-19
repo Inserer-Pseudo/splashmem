@@ -77,7 +77,11 @@ void main_loop()
 
         /***************Deplacement des joueurs - code exemple a remplacer*/
         
-        
+        for (int i=0; i<MAX_PLAYERS; i++)
+        {
+            world_do_player_action(players[i]);
+            
+        }
         /**************/
 
         //  Update de la map
