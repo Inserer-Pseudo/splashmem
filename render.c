@@ -82,6 +82,24 @@ void main_loop()
             world_do_player_action(players[i]);
             
         }
+
+        // gestion fin de partie (si un joueur crédit=0 --> fin de partie)
+
+        int pauvre = 0
+        for (int i=1; i<=MAX_PLAYERS; i++)
+        {
+            if (player->credits == 0)
+            {
+                pauvre++;
+            }
+        }
+
+        if(pauvre !=0)
+        {
+            world_get_winner();
+            quitting =1; 
+        }
+        
         /**************/
 
         //  Update de la map
