@@ -88,7 +88,7 @@ void main_loop()
         int pauvre = 0
         for (int i=1; i<=MAX_PLAYERS; i++)
         {
-            if (player->credits == 0)
+            if (player->credits <= 0)
             {
                 pauvre++;
             }
