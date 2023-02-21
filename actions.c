@@ -5,8 +5,14 @@
 #include "actions.h"
 #include "world.h"
 
-actions_init()
+
+int cpt_bombes;
+struct bombe_s bombes[100];
+
+void actions_init()
 {
+    cpt_bombes = 0;
+    bombes = {0};
 }
 
 void actions_do(t_player *p_player, enum action act_id)
@@ -24,7 +30,6 @@ void actions_do(t_player *p_player, enum action act_id)
             }
             world_paint_spot(p_player->x, p_player->y, p_player->id);
             p_player->credits -= 1;
-
             break;
 
         case ACTION_MOVE_R:
@@ -78,8 +83,8 @@ void actions_do(t_player *p_player, enum action act_id)
                     p_player->x = 0;
                 }
                 p_player->x--;
-            }
             world_paint_spot(p_player->x, p_player->y, p_player->id);
+            }
             p_player->credits -= 10;
 
             break;
@@ -93,8 +98,8 @@ void actions_do(t_player *p_player, enum action act_id)
                     p_player->x = 0;
                 }
                 p_player->x++;
-            }
             world_paint_spot(p_player->x, p_player->y, p_player->id);
+            }
             p_player->credits -= 10;
 
             break;
@@ -108,8 +113,8 @@ void actions_do(t_player *p_player, enum action act_id)
                     p_player->y = 0;
                 }
                 p_player->y--;
-            }
             world_paint_spot(p_player->x, p_player->y, p_player->id);
+            }
             p_player->credits -= 10;
 
             break;
@@ -123,8 +128,8 @@ void actions_do(t_player *p_player, enum action act_id)
                     p_player->y = 0;
                 }
                 p_player->y++;
-            }
             world_paint_spot(p_player->x, p_player->y, p_player->id);
+            }
             p_player->credits -= 10;
 
             break;
@@ -163,6 +168,38 @@ void actions_do(t_player *p_player, enum action act_id)
         }
 
         break;
+
+        case ACTION_BOMB:
+            p_player->credits -= BOMB_COST;
+            bombes[cpt_bombes].id = cpt_bombes;
+            bombes[cpt_bombes].couleur = p_player->id;
+            bombes[cpt_bombes].x = p_player->x;
+            bombes[cpt_bombes].y = p_player->y;
+            bombes[cpt_bombes].meche = BOMB_TIMER;
+            cpt_bombes++;
+            break;
+        }
+
+        //******************** Code de la gestion des bombes **************
+        for (int i = 0; i < cpt_bombes+1; i++)
+        {
+            if (bombes[i].meche == 0)
+            {
+                // Kaboouum !!!
+                for (int j = 0; j < 3; j++)
+                {
+                    for (int k = 0; k < 3; k++)
+                    {
+                        world_paint_spot(bombes[i].x-1+j, bombes[i].y-1+k, bombes[i].color);
+                    }
+                }
+                bombes[i].meche = 99; // Bombe deja pete donc set à valeur interdite
+            }
+            else if (bombes[i].meche <= BOMB_TIMER)
+            {
+                bombes[i].meche--;
+            }
+        }
 
         /*
         ACTION_STILL,

@@ -5,3 +5,4 @@ splash
 createDEB.txt
 main.py
 pkg_src/splashmem/DEBIAN/control
+.vscode

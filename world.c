@@ -57,5 +57,5 @@ void world_paint_spot(uint32_t x, uint32_t y, uint32_t num)
 /* ------------------------------------------------------------------------- */
 void world_get_winner()
 {
-
+    // Free les players
 }
