@@ -8,6 +8,8 @@
 #define WIN_SIZE MAP_SIZE * SQUARE_SIZE
 
 #define P_CREDITS 9000
-#define BOMB_COUNTER 5
+#define DASH_COST 10
+#define BOMB_COST 100
+#define BOMB_TIMER 5
 
 #endif 

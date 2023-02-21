@@ -23,6 +23,14 @@ enum action
     ACTION_NUMBER
 };
 
+struct bombe_s {
+    uint32_t id;
+    uint32_t couleur;
+    uint32_t x;
+    uint32_t y;
+    uint8_t meche;
+};
+
 void actions_do(t_player *p_player, enum action act_id);
 void actions_init();
 #endif
