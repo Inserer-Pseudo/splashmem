@@ -5,14 +5,16 @@
 #include "actions.h"
 #include "world.h"
 
-
 int cpt_bombes;
 struct bombe_s bombes[100];
+
+uint32_t cordX = 0;
+uint32_t cordY = 0;
 
 void actions_init()
 {
     cpt_bombes = 0;
-    bombes = {0};
+    // bombes = {0};
 }
 
 void actions_do(t_player *p_player, enum action act_id)
@@ -83,7 +85,7 @@ void actions_do(t_player *p_player, enum action act_id)
                     p_player->x = 0;
                 }
                 p_player->x--;
-            world_paint_spot(p_player->x, p_player->y, p_player->id);
+                world_paint_spot(p_player->x, p_player->y, p_player->id);
             }
             p_player->credits -= 10;
 
@@ -98,7 +100,7 @@ void actions_do(t_player *p_player, enum action act_id)
                     p_player->x = 0;
                 }
                 p_player->x++;
-            world_paint_spot(p_player->x, p_player->y, p_player->id);
+                world_paint_spot(p_player->x, p_player->y, p_player->id);
             }
             p_player->credits -= 10;
 
@@ -113,7 +115,7 @@ void actions_do(t_player *p_player, enum action act_id)
                     p_player->y = 0;
                 }
                 p_player->y--;
-            world_paint_spot(p_player->x, p_player->y, p_player->id);
+                world_paint_spot(p_player->x, p_player->y, p_player->id);
             }
             p_player->credits -= 10;
 
@@ -128,7 +130,7 @@ void actions_do(t_player *p_player, enum action act_id)
                     p_player->y = 0;
                 }
                 p_player->y++;
-            world_paint_spot(p_player->x, p_player->y, p_player->id);
+                world_paint_spot(p_player->x, p_player->y, p_player->id);
             }
             p_player->credits -= 10;
 
@@ -136,8 +138,8 @@ void actions_do(t_player *p_player, enum action act_id)
 
         case ACTION_SPLASH:
 
-            uint32_t cordX = 0;
-            uint32_t cordY = 0;
+            cordX = 0;
+            cordY = 0;
 
             for (cordX = p_player->x - 1; cordX <= p_player->x + 1; cordX++)
             {
@@ -154,7 +156,7 @@ void actions_do(t_player *p_player, enum action act_id)
 
                     if (cordY >= MAP_SIZE)
                     {
-                        ordY = 0;
+                        cordY = 0;
                     }
                     else if (cordY < 0)
                     {
@@ -162,14 +164,12 @@ void actions_do(t_player *p_player, enum action act_id)
                     }
                     world_paint_spot(cordX, cordY, p_player->id);
                 }
-
-                p_player->credits -= 8;
             }
-        }
-
-        break;
+            p_player->credits -= 8;
+            break;
 
         case ACTION_BOMB:
+
             p_player->credits -= BOMB_COST;
             bombes[cpt_bombes].id = cpt_bombes;
             bombes[cpt_bombes].couleur = p_player->id;
@@ -181,7 +181,7 @@ void actions_do(t_player *p_player, enum action act_id)
         }
 
         //******************** Code de la gestion des bombes **************
-        for (int i = 0; i < cpt_bombes+1; i++)
+        for (int i = 0; i < cpt_bombes + 1; i++)
         {
             if (bombes[i].meche == 0)
             {
@@ -190,7 +190,7 @@ void actions_do(t_player *p_player, enum action act_id)
                 {
                     for (int k = 0; k < 3; k++)
                     {
-                        world_paint_spot(bombes[i].x-1+j, bombes[i].y-1+k, bombes[i].color);
+                        world_paint_spot(bombes[i].x - 1 + j, bombes[i].y - 1 + k, bombes[i].couleur);
                     }
                 }
                 bombes[i].meche = 99; // Bombe deja pete donc set à valeur interdite
