@@ -2,14 +2,15 @@
 #include <SDL2/SDL.h>
 #include "player.h"
 #include "param.h"
+#include <dlfcn.h>
 
-int start_pos_x[] = {MAP_SIZE/4, MAP_SIZE/4, MAP_SIZE*3/4, MAP_SIZE*3/4};
-int start_pos_y[] = {MAP_SIZE/4, MAP_SIZE*3/4, MAP_SIZE/4, MAP_SIZE*3/4};
+int start_pos_x[] = {MAP_SIZE / 4, MAP_SIZE / 4, MAP_SIZE * 3 / 4, MAP_SIZE * 3 / 4};
+int start_pos_y[] = {MAP_SIZE / 4, MAP_SIZE * 3 / 4, MAP_SIZE / 4, MAP_SIZE * 3 / 4};
 
 /* ------------------------------------------------------------------------- */
 /*                                                                           */
 /* ------------------------------------------------------------------------- */
-void player_init(t_player* p_player, uint8_t num)
+void player_init(t_player *p_player, uint8_t num)
 {
     p_player->id = num + 1;
     p_player->color = 0;
@@ -18,5 +19,19 @@ void player_init(t_player* p_player, uint8_t num)
     p_player->data = NULL;
     p_player->credits = P_CREDITS;
     p_player->count = 0;
+    switch (num)
+    {
+    case 1:
+        p_player->so_handle = dlopen("./p1.so", RTLD_LAZY);
+        break;
+    case 2:
+        p_player->so_handle = dlopen("./p2.so", RTLD_LAZY);
+        break;
+    case 3:
+        p_player->so_handle = dlopen("./p3.so", RTLD_LAZY);
+        break;
+    case 4:
+        p_player->so_handle = dlopen("./p4.so", RTLD_LAZY);
+        break;
+    }
 }
-

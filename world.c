@@ -5,6 +5,7 @@
 #include "param.h"
 #include "player.h"
 #include "actions.h"
+#include <dlfcn.h>
 
 
 
@@ -35,7 +36,9 @@ void world_create_players()
 /* ------------------------------------------------------------------------- */
 void world_do_player_action(t_player *p_player)
 {
-
+    
+    p_player->get_action= dlsym(p_player->so_handle,"get_action");
+    actions_do(p_player,(enum action)p_player->get_action);
 }
 
 /* ------------------------------------------------------------------------- */
@@ -54,5 +57,5 @@ void world_paint_spot(uint32_t x, uint32_t y, uint32_t num)
 /* ------------------------------------------------------------------------- */
 void world_get_winner()
 {
-
+    // Free les players
 }
