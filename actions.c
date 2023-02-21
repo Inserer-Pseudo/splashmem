@@ -68,62 +68,6 @@ void actions_do(t_player *p_player, enum action act_id)
 
             break;
 
-        case ACTION_STILL:
-            // Ne rien faire
-            break;
-
-        case ACTION_DASH_L:
-            for (int i = 0; i < 5; i++)
-            {
-                p_player->x--;
-                if (p_player->x >= MAP_SIZE)
-                {
-                    p_player->x = 0;
-                }
-                world_paint_spot(p_player->x, p_player->y, p_player->id);
-            }
-            p_player->credits -= DASH_COST;
-            break;
-
-        case ACTION_DASH_R:
-            for (int i = 0; i < 5; i++)
-            {
-                p_player->x++;
-                if (p_player->x >= MAP_SIZE)
-                {
-                    p_player->x = 0;
-                }
-                world_paint_spot(p_player->x, p_player->y, p_player->id);
-            }
-            p_player->credits -= DASH_COST;
-            break;
-
-        case ACTION_DASH_U:
-            for (int i = 0; i < 5; i++)
-            {
-                p_player->y--;
-                if (p_player->x >= MAP_SIZE)
-                {
-                    p_player->x = 0;
-                }
-                world_paint_spot(p_player->x, p_player->y, p_player->id);
-            }
-            p_player->credits -= DASH_COST;
-            break;
-
-        case ACTION_DASH_D:
-            for (int i = 0; i < 5; i++)
-            {
-                p_player->y++;
-                if (p_player->x >= MAP_SIZE)
-                {
-                    p_player->x = 0;
-                }
-                world_paint_spot(p_player->x, p_player->y, p_player->id);
-            }
-            p_player->credits -= DASH_COST;
-            break;
-
         case ACTION_BOMB:
             p_player->credits -= BOMB_COST;
             bombes[cpt_bombes].id = cpt_bombes;
