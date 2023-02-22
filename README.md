@@ -97,10 +97,3 @@ Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" targe
 
 <a href="#top">Back to top</a>
 
-
-Bonjour, ceci est le repo de Mathis et Benjamin pour le projet dev: Splashmem ===
-sudo apt-get install libsdl2-dev ===
-ctrl + shift + p ===
-C/C++:Edit Conf JSON ===
-add "/usr/include/SDL2/" dans includePath ===
-reload intellisense
