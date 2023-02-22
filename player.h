@@ -15,8 +15,7 @@ typedef struct s_player
     uint32_t y;
     int32_t credits;
     uint32_t count;
-    //void * so_handle;
-    void * get_action; 
+    void *get_action; 
     
 } t_player;
 

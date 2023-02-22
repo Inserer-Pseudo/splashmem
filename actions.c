@@ -14,7 +14,7 @@ uint32_t cordY = 0;
 void actions_init()
 {
     cpt_bombes = 0;
-    bombes[0].meche = 99;   //Pour pas quelle pete des le debut
+    bombes[0].meche = 99; // Pour pas quelle pete des le debut
 }
 
 void actions_do(t_player *p_player, enum action act_id)
@@ -224,11 +224,12 @@ void actions_do(t_player *p_player, enum action act_id)
             cpt_bombes++;
             break;
 
-        case ACTION_NUMBER: break;
+        case ACTION_NUMBER:
+            break;
 
         default:
             printf("Action non reconnue");
-        break;
+            break;
         }
 
         //******************** Code de la gestion des bombes **************
