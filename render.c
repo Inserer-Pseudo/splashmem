@@ -78,15 +78,15 @@ void main_loop()
         }
 
         /***************Deplacement des joueurs - code exemple a remplacer*/
-        
-        for (int i=0; i<MAX_PLAYERS; i++)
+
+        for (int i = 0; i < MAX_PLAYERS; i++)
         {
             world_do_player_action(players[i]);
         }
 
         // gestion fin de partie (si un joueur crédit=0 --> fin de partie)
 
-        for (int i=0; i<MAX_PLAYERS; i++)
+        for (int i = 0; i < MAX_PLAYERS; i++)
         {
             if (players[i]->credits <= 0)
             {
@@ -94,17 +94,17 @@ void main_loop()
             }
         }
 
-        if(pauvre !=0)
+        if (pauvre != 0)
         {
             world_get_winner();
-            quitting =1; 
+            quitting = 1;
         }
-        
+
         /**************/
 
         //  Update de la map
         render_map();
 
-        SDL_Delay(1000);
+        SDL_Delay(100);
     }
 }

@@ -8,10 +8,12 @@
 #define WIN_SIZE MAP_SIZE * SQUARE_SIZE
 
 #define P_CREDITS 9000
+#define STILL_COST 1
 #define MOVE_COST 1
 #define DASH_COST 10
-#define DASH_SIZE 8
+#define SPLASH_COST 8
 #define TP_COST 10
+#define DASH_SIZE 8
 #define TP_SIZE 10
 #define BOMB_COST 100
 #define BOMB_TIMER 5

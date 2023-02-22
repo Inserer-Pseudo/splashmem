@@ -3,9 +3,10 @@
 #define MAX_PLAY_ACTION 3
 
 char play_actions[] = {
-    ACTION_STILL,
+    
     ACTION_SPLASH,
-    ACTION_TELEPORT_L
+    ACTION_TELEPORT_L,
+    ACTION_DASH_D
 };
 
 char get_action()

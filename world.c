@@ -80,6 +80,6 @@ void world_get_winner()
         }
     }
 
-    printf("le grand gagnant la partie splashmem est le joueur %d avec %d pixels de colorie, félicitation !\n", winner, nb_pixels);
+    printf("le grand gagnant la partie splashmem est le joueur %d avec %d pixels de colorie, félicitation !\n", winner, pixels_max);
 
 }
