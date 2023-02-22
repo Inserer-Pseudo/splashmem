@@ -9,7 +9,7 @@
 <h1 align="center">Splashmem</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/splashmem?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Inserer-Pseudo/splashmem?color=56BEB8">
 
   <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{YOUR_GITHUB_USERNAME}}/splashmem?color=56BEB8">
 
@@ -26,11 +26,11 @@
 
 <!-- Status -->
 
-<!-- <h4 align="center"> 
+< <h4 align="center"> 
 	🚧  Splashmem 🚀 Under construction...  🚧
 </h4> 
 
-<hr> -->
+<hr> >
 
 <p align="center">
   <a href="#dart-about">About</a> &#xa0; | &#xa0; 
