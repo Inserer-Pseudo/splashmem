@@ -37,8 +37,6 @@ void world_create_players()
 /* ------------------------------------------------------------------------- */
 void world_do_player_action(t_player *p_player)
 {
-    
-    p_player->get_action= dlsym(p_player->so_handle,"get_action");
     actions_do(p_player,(enum action)p_player->get_action);
 }
 
