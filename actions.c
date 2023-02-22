@@ -14,7 +14,7 @@ uint32_t cordY = 0;
 void actions_init()
 {
     cpt_bombes = 0;
-    bombes[1].meche = 99;   //Pour pas quelle pete des le debut
+    bombes[0].meche = 99;   //Pour pas quelle pete des le debut
 }
 
 void actions_do(t_player *p_player, enum action act_id)
@@ -119,6 +119,7 @@ void actions_do(t_player *p_player, enum action act_id)
 
         case ACTION_STILL:
             //Ne rien faire
+            if(0);
             break;
 
         case ACTION_DASH_L:

@@ -9,6 +9,8 @@
 #include "actions.h"
 #include "splash.h"
 
+int pauvre = 0;
+
 /* ------------------------------------------------------------------------- */
 /*                                                                           */
 /* ------------------------------------------------------------------------- */
@@ -80,13 +82,11 @@ void main_loop()
         for (int i=0; i<MAX_PLAYERS; i++)
         {
             world_do_player_action(players[i]);
-            
         }
 
         // gestion fin de partie (si un joueur crédit=0 --> fin de partie)
 
-        int pauvre = 0;
-        for (int i=1; i<=MAX_PLAYERS; i++)
+        for (int i=0; i<MAX_PLAYERS; i++)
         {
             if (players[i]->credits <= 0)
             {
