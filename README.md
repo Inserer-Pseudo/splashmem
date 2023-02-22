@@ -92,8 +92,8 @@ $ ./run.sh
 This project is under license from POLYTECH. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made with :heart: by <a href="https://github.com/Inserer-Pseudo" target="_blank">Mathis & Benjamin</a>
-
+Made by <a href="https://github.com/Inserer-Pseudo" target="_blank">Mathis & Benjamin</a>
+<!--with :heart: -->
 &#xa0;
 
 <a href="#top">Back to top</a>
