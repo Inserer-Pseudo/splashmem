@@ -14,7 +14,7 @@ uint32_t cordY = 0;
 void actions_init()
 {
     cpt_bombes = 0;
-    // bombes = {0};
+    bombes[1].meche = 99;   //Pour pas quelle pete des le debut
 }
 
 void actions_do(t_player *p_player, enum action act_id)
@@ -31,7 +31,7 @@ void actions_do(t_player *p_player, enum action act_id)
                 p_player->x = 0;
             }
             world_paint_spot(p_player->x, p_player->y, p_player->id);
-            p_player->credits -= 1;
+            p_player->credits -= MOVE_COST;
             break;
 
         case ACTION_MOVE_R:
@@ -42,7 +42,7 @@ void actions_do(t_player *p_player, enum action act_id)
                 p_player->x = 0;
             }
             world_paint_spot(p_player->x, p_player->y, p_player->id);
-            p_player->credits -= 1;
+            p_player->credits -= MOVE_COST;
 
             break;
 
@@ -54,7 +54,7 @@ void actions_do(t_player *p_player, enum action act_id)
                 p_player->y = 0;
             }
             world_paint_spot(p_player->x, p_player->y, p_player->id);
-            p_player->credits -= 1;
+            p_player->credits -= MOVE_COST;
 
             break;
 
@@ -66,14 +66,59 @@ void actions_do(t_player *p_player, enum action act_id)
                 p_player->y = 0;
             }
             world_paint_spot(p_player->x, p_player->y, p_player->id);
-            p_player->credits -= 1;
+            p_player->credits -= MOVE_COST;
+
+            break;
+
+        case ACTION_TELEPORT_L:
+
+            p_player->x -= TP_SIZE;
+            if (p_player->x >= MAP_SIZE)
+            {
+                p_player->x = 0;
+            }
+            world_paint_spot(p_player->x, p_player->y, p_player->id);
+            p_player->credits -= TP_COST;
+            break;
+
+        case ACTION_TELEPORT_R:
+
+            p_player->x += TP_SIZE;
+            if (p_player->x >= MAP_SIZE)
+            {
+                p_player->x = 0;
+            }
+            world_paint_spot(p_player->x, p_player->y, p_player->id);
+            p_player->credits -= TP_COST;
+
+            break;
+
+        case ACTION_TELEPORT_U:
+
+            p_player->y -= TP_SIZE;
+            if (p_player->y >= MAP_SIZE)
+            {
+                p_player->y = 0;
+            }
+            world_paint_spot(p_player->x, p_player->y, p_player->id);
+            p_player->credits -= TP_COST;
+
+            break;
+
+        case ACTION_TELEPORT_D:
+
+            p_player->y += TP_SIZE;
+            if (p_player->y >= MAP_SIZE)
+            {
+                p_player->y = 0;
+            }
+            world_paint_spot(p_player->x, p_player->y, p_player->id);
+            p_player->credits -= TP_COST;
 
             break;
 
         case ACTION_STILL:
-
-            p_player->credits -= 1;
-
+            //Ne rien faire
             break;
 
         case ACTION_DASH_L:
@@ -169,7 +214,6 @@ void actions_do(t_player *p_player, enum action act_id)
             break;
 
         case ACTION_BOMB:
-
             p_player->credits -= BOMB_COST;
             bombes[cpt_bombes].id = cpt_bombes;
             bombes[cpt_bombes].couleur = p_player->id;
@@ -178,6 +222,12 @@ void actions_do(t_player *p_player, enum action act_id)
             bombes[cpt_bombes].meche = BOMB_TIMER;
             cpt_bombes++;
             break;
+
+        case ACTION_NUMBER: break;
+
+        default:
+            printf("Action non reconnue");
+        break;
         }
 
         //******************** Code de la gestion des bombes **************
@@ -200,24 +250,5 @@ void actions_do(t_player *p_player, enum action act_id)
                 bombes[i].meche--;
             }
         }
-
-        /*
-        ACTION_STILL,
-        ACTION_MOVE_L,
-        ACTION_MOVE_R,
-        ACTION_MOVE_U,
-        ACTION_MOVE_D,
-        ACTION_DASH_L,
-        ACTION_DASH_R,
-        ACTION_DASH_U,
-        ACTION_DASH_D,
-        ACTION_TELEPORT_L,
-        ACTION_TELEPORT_R,
-        ACTION_TELEPORT_U,
-        ACTION_TELEPORT_D,
-        ACTION_SPLASH,
-        ACTION_BOMB,
-        ACTION_NUMBER
-        */
     }
 }

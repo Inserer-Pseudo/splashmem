@@ -85,10 +85,10 @@ void main_loop()
 
         // gestion fin de partie (si un joueur crédit=0 --> fin de partie)
 
-        int pauvre = 0
+        int pauvre = 0;
         for (int i=1; i<=MAX_PLAYERS; i++)
         {
-            if (player->credits <= 0)
+            if (players[i]->credits <= 0)
             {
                 pauvre++;
             }

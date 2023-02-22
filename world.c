@@ -66,9 +66,9 @@ void world_get_winner()
     {
         nb_pixels[joueur]=0; // init nombre cases peintes du joueur
 
-        for (uint8_t case = 0; case<(MAP_SIZE*MAP_SIZE); case++)
+        for (uint8_t pixel = 0; pixel<(MAP_SIZE*MAP_SIZE); pixel++)
         {
-            if(mapmem[case]==i)
+            if(mapmem[pixel]==joueur)
             {
                 nb_pixels[joueur]++;
             }
