@@ -19,4 +19,5 @@ void player_init(t_player *p_player, uint8_t num)
     p_player->data = NULL;
     p_player->credits = P_CREDITS;
     p_player->count = 0;
+    //action par defaut = 0 = stand_still
 }

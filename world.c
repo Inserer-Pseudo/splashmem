@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include<string.h>
 
 #include "world.h"
 #include "param.h"
@@ -37,7 +38,7 @@ void world_create_players()
 /* ------------------------------------------------------------------------- */
 void world_do_player_action(t_player *p_player)
 {
-    actions_do(p_player,(enum action)p_player->get_action);
+   actions_do(p_player, p_player->get_action());
 }
 
 /* ------------------------------------------------------------------------- */

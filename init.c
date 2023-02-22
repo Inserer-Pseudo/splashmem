@@ -10,8 +10,7 @@
 #include "actions.h"
 #include "splash.h"
 
-
-uint32_t colors[MAX_PLAYERS+1] = { 0 };
+uint32_t colors[MAX_PLAYERS + 1] = {0};
 
 /* ------------------------------------------------------------------------- */
 /*                                                                           */
@@ -25,7 +24,6 @@ void init_colors(SDL_PixelFormat *format)
     colors[4] = SDL_MapRGB(format, 0xFF, 0, 0xFF);
 }
 
-
 /* ------------------------------------------------------------------------- */
 /*                                                                           */
 /* ------------------------------------------------------------------------- */
@@ -36,7 +34,7 @@ void inits(int argc, char *argv[])
     char *p3so = argv[3];
     char *p4so = argv[4];
 
-    //Get window surface
+    // Get window surface
     screenSurface = SDL_GetWindowSurface(window);
     SDL_PixelFormat *format = screenSurface->format;
     init_colors(format);
@@ -46,7 +44,7 @@ void inits(int argc, char *argv[])
     void *p3sopen = dlopen(p3so, RTLD_LAZY);
     void *p4sopen = dlopen(p4so, RTLD_LAZY);
 
-    actions_init(); //A modifier
+    actions_init();
     world_create_players();
 
     players[0]->get_action = dlsym(p1sopen, "get_action");
