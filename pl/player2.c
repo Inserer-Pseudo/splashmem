@@ -16,7 +16,7 @@ char play_actions[] = {
     ACTION_TELEPORT_D,
     ACTION_MOVE_D,
     */
-    ACTION_MOVE_L;
+    ACTION_MOVE_L
 };
 
 char get_action()

@@ -6,6 +6,7 @@
 #include "player.h"
 #include "actions.h"
 #include <dlfcn.h>
+#include "param.h"
 
 
 
@@ -57,5 +58,29 @@ void world_paint_spot(uint32_t x, uint32_t y, uint32_t num)
 /* ------------------------------------------------------------------------- */
 void world_get_winner()
 {
-    // Free les players
+    int winner = 0;
+    int nb_pixels[MAX_PLAYERS];
+    int pixels_max =0;
+
+    for (int joueur=1; joueur <= MAX_PLAYERS; joueur++)
+    {
+        nb_pixels[joueur]=0; // init nombre cases peintes du joueur
+
+        for (uint8_t case = 0; case<(MAP_SIZE*MAP_SIZE); case++)
+        {
+            if(mapmem[case]==i)
+            {
+                nb_pixels[joueur]++;
+            }
+        }
+
+        if (nb_pixels[joueur] > pixels_max)
+        {
+            pixels_max = nb_pixels[joueur];
+            winner = joueur;
+        }
+    }
+
+    printf("le grand gagnant la partie splashmem est le joueur %d avec %d pixels de colorie, félicitation !\n", winner, nb_pixels);
+
 }
