@@ -14,7 +14,7 @@ uint32_t cordY = 0;
 void actions_init()
 {
     cpt_bombes = 0;
-    bombes[0].meche = 99;   //Pour pas quelle pete des le debut
+    bombes[0].meche = 99; // Pour pas quelle pete des le debut
 }
 
 void actions_do(t_player *p_player, enum action act_id)
@@ -23,6 +23,10 @@ void actions_do(t_player *p_player, enum action act_id)
     {
         switch (act_id)
         {
+        case ACTION_STILL:
+            // Ne rien faire
+            break;
+
         case ACTION_MOVE_L:
 
             p_player->x--;
@@ -117,11 +121,6 @@ void actions_do(t_player *p_player, enum action act_id)
 
             break;
 
-        case ACTION_STILL:
-            //Ne rien faire
-            if(0);
-            break;
-
         case ACTION_DASH_L:
 
             for (int i = 0; i < 8; i++)
@@ -189,7 +188,7 @@ void actions_do(t_player *p_player, enum action act_id)
 
             for (cordX = p_player->x - 1; cordX <= p_player->x + 1; cordX++)
             {
-                for (cordY = p_player->y - 1; cordY < p_player->y + 1; cordY++)
+                for (cordY = p_player->y - 1; cordY <= p_player->y + 1; cordY++)
                 {
                     if (cordX >= MAP_SIZE)
                     {
@@ -224,15 +223,16 @@ void actions_do(t_player *p_player, enum action act_id)
             cpt_bombes++;
             break;
 
-        case ACTION_NUMBER: break;
+        case ACTION_NUMBER:
+            break;
 
         default:
             printf("Action non reconnue");
-        break;
+            break;
         }
 
         //******************** Code de la gestion des bombes **************
-        for (int i = 0; i < cpt_bombes + 1; i++)
+        for (int i = 0; i < cpt_bombes; i++)
         {
             if (bombes[i].meche == 0)
             {

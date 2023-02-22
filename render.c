@@ -105,6 +105,6 @@ void main_loop()
         //  Update de la map
         render_map();
 
-        SDL_Delay(10);
+        SDL_Delay(1000);
     }
 }
