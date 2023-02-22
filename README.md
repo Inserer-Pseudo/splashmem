@@ -1,5 +1,7 @@
+
+
 <div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Splashmem" />
+  <img src="./splash-entete.jpg" alt="Splashmem" />
 
   &#xa0;
 
@@ -11,11 +13,11 @@
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/Inserer-Pseudo/splashmem?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{YOUR_GITHUB_USERNAME}}/splashmem?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Inserer-Pseudo/splashmem?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/{{YOUR_GITHUB_USERNAME}}/splashmem?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Inserer-Pseudo/splashmem?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/{{YOUR_GITHUB_USERNAME}}/splashmem?color=56BEB8">
+  <img alt="License" src="https://img.shields.io/github/license/Inserer-Pseudo/splashmem?color=56BEB8">
 
   <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/splashmem?color=56BEB8" /> -->
 
@@ -39,7 +41,7 @@
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Author</a>
+  <a href="https://github.com/Inserer-Pseudo" target="_blank">Author</a>
 </p>
 
 <br>
@@ -58,11 +60,7 @@ Describe your project
 
 The following tools were used in this project:
 
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
+- [SDL2](https://sdl2.io)
 
 ## :white_check_mark: Requirements ##
 
@@ -72,26 +70,29 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 
 ```bash
 # Clone this project
-$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/splashmem
+$ git clone https://github.com/Inserer-Pseudo/splashmem
 
 # Access
 $ cd splashmem
 
 # Install dependencies
-$ yarn
+$ sudo apt-get intall libsdl2-dev
+
+# Compile the project
+$ make all
 
 # Run the project
-$ yarn start
+$ ./run.sh
 
-# The server will initialize in the <http://localhost:3000>
+#A window should appear
 ```
 
 ## :memo: License ##
 
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
+This project is under license from POLYTECH. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
+Made with :heart: by <a href="https://github.com/Inserer-Pseudo" target="_blank">Mathis & Benjamin</a>
 
 &#xa0;
 
