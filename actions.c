@@ -29,7 +29,6 @@ void actions_do(t_player *p_player, enum action act_id)
 
         case ACTION_MOVE_L:
 
-           
             if (p_player->x <= 0)
             {
                 p_player->x = MAP_SIZE;
@@ -47,7 +46,6 @@ void actions_do(t_player *p_player, enum action act_id)
             {
                 p_player->x = 0;
             }
-            
 
             world_paint_spot(p_player->x, p_player->y, p_player->id);
             p_player->credits -= MOVE_COST;
@@ -56,13 +54,11 @@ void actions_do(t_player *p_player, enum action act_id)
 
         case ACTION_MOVE_U:
 
-            
             if (p_player->y <= 0)
             {
                 p_player->y = MAP_SIZE;
             }
             p_player->y--;
-            
 
             world_paint_spot(p_player->x, p_player->y, p_player->id);
             p_player->credits -= MOVE_COST;
@@ -71,7 +67,6 @@ void actions_do(t_player *p_player, enum action act_id)
 
         case ACTION_MOVE_D:
 
-            
             if (p_player->y >= MAP_SIZE)
             {
                 p_player->y = 0;
@@ -85,22 +80,28 @@ void actions_do(t_player *p_player, enum action act_id)
 
         case ACTION_TELEPORT_L:
 
-            
-            if (p_player->x <= 0)
+            for (int i = 0; i < TP_SIZE; i++)
             {
-                p_player->x = MAP_SIZE;
+                if (p_player->x <= 0)
+                {
+                    p_player->x = MAP_SIZE;
+                }
+                p_player->x--;
             }
-            p_player->x -= TP_SIZE;
             world_paint_spot(p_player->x, p_player->y, p_player->id);
             p_player->credits -= TP_COST;
+
             break;
 
         case ACTION_TELEPORT_R:
 
-            p_player->x += TP_SIZE;
-            if (p_player->x >= MAP_SIZE)
+            for (int i = 0; i < TP_SIZE; i++)
             {
-                p_player->x = 0;
+                if (p_player->x >= MAP_SIZE)
+                {
+                    p_player->x = 0;
+                }
+                p_player->x++;
             }
             world_paint_spot(p_player->x, p_player->y, p_player->id);
             p_player->credits -= TP_COST;
@@ -109,11 +110,13 @@ void actions_do(t_player *p_player, enum action act_id)
 
         case ACTION_TELEPORT_U:
 
-            p_player->y -= TP_SIZE;
-            if (p_player->y <= 0)
+            for (int i = 0; i < TP_SIZE; i++)
             {
-                p_player->y = MAP_SIZE;
-                
+                if (p_player->y <= 0)
+                {
+                    p_player->y = MAP_SIZE;
+                }
+                p_player->y--;
             }
             world_paint_spot(p_player->x, p_player->y, p_player->id);
             p_player->credits -= TP_COST;
@@ -122,10 +125,13 @@ void actions_do(t_player *p_player, enum action act_id)
 
         case ACTION_TELEPORT_D:
 
-            p_player->y += TP_SIZE;
-            if (p_player->y >= MAP_SIZE )
+            for (int i = 0; i < TP_SIZE; i++)
             {
-                p_player->y = 0;
+                if (p_player->y >= MAP_SIZE)
+                {
+                    p_player->y = 0;
+                }
+                p_player->y++;
             }
             world_paint_spot(p_player->x, p_player->y, p_player->id);
             p_player->credits -= TP_COST;
@@ -136,7 +142,7 @@ void actions_do(t_player *p_player, enum action act_id)
 
             for (int i = 0; i < DASH_SIZE; i++)
             {
-                
+
                 if (p_player->x <= 0)
                 {
                     p_player->x = MAP_SIZE;
@@ -157,7 +163,7 @@ void actions_do(t_player *p_player, enum action act_id)
                 {
                     p_player->x = 0;
                 }
-              
+
                 world_paint_spot(p_player->x, p_player->y, p_player->id);
             }
             p_player->credits -= DASH_COST;
@@ -168,7 +174,7 @@ void actions_do(t_player *p_player, enum action act_id)
 
             for (int i = 0; i < DASH_SIZE; i++)
             {
-                
+
                 if (p_player->y <= 0)
                 {
                     p_player->y = MAP_SIZE;
@@ -189,7 +195,7 @@ void actions_do(t_player *p_player, enum action act_id)
                 {
                     p_player->y = 0;
                 }
-                
+
                 world_paint_spot(p_player->x, p_player->y, p_player->id);
             }
             p_player->credits -= 10;
