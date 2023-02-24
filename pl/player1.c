@@ -1,10 +1,11 @@
 #include "actions.h"
 #include <stdio.h>
-#define MAX_PLAY_ACTION 6
+#define MAX_PLAY_ACTION 7
 
 char play_actions[] = {
     ACTION_TELEPORT_L,
     ACTION_MOVE_D,
+    ACTION_SPLASH,
     ACTION_MOVE_D,
     ACTION_MOVE_R,
     ACTION_BOMB,

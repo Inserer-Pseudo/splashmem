@@ -107,6 +107,6 @@ void main_loop()
         
         render_map();
 
-        SDL_Delay(100);
+        SDL_Delay(10);
     }
 }

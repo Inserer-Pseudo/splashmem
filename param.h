@@ -7,7 +7,7 @@
 #define SQUARE_SIZE 10
 #define WIN_SIZE MAP_SIZE * SQUARE_SIZE
 
-#define P_CREDITS 900
+#define P_CREDITS 9000
 #define STILL_COST 1
 #define MOVE_COST 1
 #define DASH_COST 10

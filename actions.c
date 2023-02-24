@@ -204,6 +204,15 @@ void actions_do(t_player *p_player, enum action act_id)
 
         case ACTION_SPLASH:
 
+            for (int j = 0; j < 3; j++)
+            {
+                for (int k = 0; k < 3; k++)
+                {
+                    world_paint_spot(p_player->x - 1 + j, p_player->y - 1 + k, p_player->id);
+                }
+            }
+
+    /*
             cordX = 0;
             cordY = 0;
 
@@ -211,6 +220,7 @@ void actions_do(t_player *p_player, enum action act_id)
             {
                 for (cordY = p_player->y - 1; cordY <= p_player->y + 1; cordY++)
                 {
+
                     if (cordX >= MAP_SIZE)
                     {
                         cordX = 0;
@@ -231,6 +241,7 @@ void actions_do(t_player *p_player, enum action act_id)
                     world_paint_spot(cordX, cordY, p_player->id);
                 }
             }
+    */
             p_player->credits -= SPLASH_COST;
             break;
 
