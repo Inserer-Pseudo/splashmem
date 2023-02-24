@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
 
@@ -96,6 +97,7 @@ void main_loop()
         if (pauvre != 0)
         {
             world_get_winner();
+            sleep(5);
             quitting = 1;
         }
 

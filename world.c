@@ -58,14 +58,14 @@ void world_paint_spot(uint32_t x, uint32_t y, uint32_t num)
 void world_get_winner()
 {
     int winner = 0;
-    int nb_pixels[MAX_PLAYERS];
-    int pixels_max =0;
+    uint32_t nb_pixels[MAX_PLAYERS];
+    uint32_t pixels_max =0;
 
     for (int joueur=1; joueur <= MAX_PLAYERS; joueur++)
     {
         nb_pixels[joueur]=0; // init nombre cases peintes du joueur
 
-        for (uint8_t pixel = 0; pixel<(MAP_SIZE*MAP_SIZE); pixel++)
+        for (uint32_t pixel = 0; pixel<=((MAP_SIZE*MAP_SIZE)-10); pixel++)
         {
             if(mapmem[pixel]==joueur)
             {
@@ -80,6 +80,5 @@ void world_get_winner()
         }
     }
 
-    printf("le grand gagnant la partie splashmem est le joueur %d avec %d pixels de colorie, félicitation !\n", winner, pixels_max);
-
+    printf("le grand gagnant la partie splashmem est le joueur %d avec %hhu pixels de colorie, félicitation !\n", winner, pixels_max);
 }
