@@ -48,23 +48,24 @@
 
 ## :dart: About ##
 
-Describe your project
+Splashmeme est un jeu type "Splatoon" mais uniquement en 2D. Les joueurs sont également des fichiers textes ayant chacun une liste d'action.
 
 ## :sparkles: Features ##
 
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+:heavy_check_mark: Les joueurs sont des fichiers externes\
+:heavy_check_mark: Gestion de plein d'action différentes !\
+:heavy_check_mark: Affichage dynamique : waouh !\
+:heavy_check_mark: Le grand gagnant est annoncé à la fin
 
 ## :rocket: Technologies ##
 
 The following tools were used in this project:
 
-- [SDL2](https://sdl2.io)
+- [SDL2](https://www.libsdl.org/)
 
 ## :white_check_mark: Requirements ##
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com)
 
 ## :checkered_flag: Starting ##
 
@@ -81,7 +82,7 @@ $ sudo apt-get intall libsdl2-dev
 # Compile the project
 $ make all
 
-# Run the project
+# Run the project with our player examples
 $ ./run.sh
 
 #A window should appear
