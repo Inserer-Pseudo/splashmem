@@ -1,7 +1,7 @@
 # makefile
 SRCS=$(wildcard *.c)
 OBJS=$(SRCS:.c=.o)
-CFLAGS= -Wall -g2 -fPIC  # -DDEBUG
+CFLAGS= -Wall -g2 -fPIC -DDEBUG -O0
 LDFLAGS= -ldl -lSDL2
 EXE=splash
 #cc= g++ #compilateur c++
