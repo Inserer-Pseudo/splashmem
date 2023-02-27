@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include<string.h>
+#include <string.h>
 
 #include "world.h"
 #include "param.h"
@@ -9,14 +9,11 @@
 #include <dlfcn.h>
 #include "param.h"
 
-
-
-
 /* !!!!!!!!!!!!!!!! MAP !!!!!!!!!!!!!!!!!!!!! */
 uint8_t mapmem[MAP_SIZE * MAP_SIZE] = {0};
 
 /*  PLAYERS */
-t_player* players[MAX_PLAYERS] = {0};
+t_player *players[MAX_PLAYERS] = {0};
 
 /* ------------------------------------------------------------------------- */
 /*                                                                           */
@@ -27,7 +24,7 @@ void world_create_players()
 
     for (i = 0; i < MAX_PLAYERS; i++)
     {
-        players[i] = (t_player*) malloc(sizeof(t_player));
+        players[i] = (t_player *)malloc(sizeof(t_player));
         player_init(players[i], i);
         world_paint_spot(players[i]->x, players[i]->y, players[i]->id);
     }
@@ -38,7 +35,7 @@ void world_create_players()
 /* ------------------------------------------------------------------------- */
 void world_do_player_action(t_player *p_player)
 {
-   actions_do(p_player, p_player->get_action());
+    actions_do(p_player, p_player->get_action());
 }
 
 /* ------------------------------------------------------------------------- */
@@ -47,10 +44,11 @@ void world_do_player_action(t_player *p_player)
 void world_paint_spot(uint32_t x, uint32_t y, uint32_t num)
 {
     uint32_t pos = y * MAP_SIZE + x;
-    mapmem[pos] = num;
+    if (pos <= MAP_SIZE * MAP_SIZE)
+    {
+        mapmem[pos] = num;
+    }
 }
-
-
 
 /* ------------------------------------------------------------------------- */
 /*                                                                           */
@@ -59,15 +57,15 @@ void world_get_winner()
 {
     int winner = 0;
     uint32_t nb_pixels[MAX_PLAYERS];
-    uint32_t pixels_max =0;
+    uint32_t pixels_max = 0;
 
-    for (int joueur=1; joueur <= MAX_PLAYERS; joueur++)
+    for (int joueur = 1; joueur <= MAX_PLAYERS; joueur++)
     {
-        nb_pixels[joueur]=0; // init nombre cases peintes du joueur
+        nb_pixels[joueur] = 0; // init nombre cases peintes du joueur
 
-        for (uint32_t pixel = 0; pixel<=((MAP_SIZE*MAP_SIZE)-10); pixel++)
+        for (uint32_t pixel = 0; pixel <= MAP_SIZE * MAP_SIZE; pixel++)
         {
-            if(mapmem[pixel]==joueur)
+            if (mapmem[pixel] == joueur)
             {
                 nb_pixels[joueur]++;
             }

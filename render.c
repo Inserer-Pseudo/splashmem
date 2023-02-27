@@ -33,6 +33,7 @@ void render_map()
         SDL_FillRect(screenSurface, &rect, colors[mapmem[i]]);
     }
     SDL_UpdateWindowSurface(window);
+    SDL_FreeSurface(screenSurface);
 }
 
 /* ------------------------------------------------------------------------- */
@@ -56,6 +57,7 @@ void render_player()
         SDL_FillRect(screenSurface, &rect, colors[i] - 0x00202020);
     }
     SDL_UpdateWindowSurface(window);
+    SDL_FreeSurface(screenSurface);
 }
 
 /* ------------------------------------------------------------------------- */
@@ -104,8 +106,9 @@ void main_loop()
         /**************/
 
         //  Update de la map
-        
+
         render_map();
+        render_player();
 
         SDL_Delay(10);
     }

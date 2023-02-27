@@ -142,7 +142,6 @@ void actions_do(t_player *p_player, enum action act_id)
 
             for (int i = 0; i < DASH_SIZE; i++)
             {
-
                 if (p_player->x <= 0)
                 {
                     p_player->x = MAP_SIZE;
@@ -158,12 +157,11 @@ void actions_do(t_player *p_player, enum action act_id)
 
             for (int i = 0; i < DASH_SIZE; i++)
             {
-                p_player->x++;
                 if (p_player->x >= MAP_SIZE)
                 {
                     p_player->x = 0;
                 }
-
+                p_player->x++;
                 world_paint_spot(p_player->x, p_player->y, p_player->id);
             }
             p_player->credits -= DASH_COST;
@@ -174,7 +172,6 @@ void actions_do(t_player *p_player, enum action act_id)
 
             for (int i = 0; i < DASH_SIZE; i++)
             {
-
                 if (p_player->y <= 0)
                 {
                     p_player->y = MAP_SIZE;
@@ -190,12 +187,11 @@ void actions_do(t_player *p_player, enum action act_id)
 
             for (int i = 0; i < DASH_SIZE; i++)
             {
-                p_player->y++;
                 if (p_player->y >= MAP_SIZE)
                 {
                     p_player->y = 0;
                 }
-
+                p_player->y++;
                 world_paint_spot(p_player->x, p_player->y, p_player->id);
             }
             p_player->credits -= 10;
@@ -208,40 +204,24 @@ void actions_do(t_player *p_player, enum action act_id)
             {
                 for (int k = 0; k < 3; k++)
                 {
-                    world_paint_spot(p_player->x - 1 + j, p_player->y - 1 + k, p_player->id);
+                    uint32_t px = p_player->x - 1 + j;
+                    uint32_t py = p_player->y - 1 + k;
+                    if (px <= MAP_SIZE && py <= MAP_SIZE)
+                    {
+                        world_paint_spot(px, py, p_player->id);
+                    }
+                    else if (px > MAP_SIZE)
+                    {
+                        px = 1;
+                        world_paint_spot(px, py, p_player->id);
+                    }
+                    else if (py > MAP_SIZE)
+                    {
+                        py = 1;
+                        world_paint_spot(px, py, p_player->id);
+                    }
                 }
             }
-
-    /*
-            cordX = 0;
-            cordY = 0;
-
-            for (cordX = p_player->x - 1; cordX <= p_player->x + 1; cordX++)
-            {
-                for (cordY = p_player->y - 1; cordY <= p_player->y + 1; cordY++)
-                {
-
-                    if (cordX >= MAP_SIZE)
-                    {
-                        cordX = 0;
-                    }
-                    else if (cordX < 0)
-                    {
-                        cordX = MAP_SIZE - 1;
-                    }
-
-                    if (cordY >= MAP_SIZE)
-                    {
-                        cordY = 0;
-                    }
-                    else if (cordY < 0)
-                    {
-                        cordY = MAP_SIZE - 1;
-                    }
-                    world_paint_spot(cordX, cordY, p_player->id);
-                }
-            }
-    */
             p_player->credits -= SPLASH_COST;
             break;
 
@@ -273,7 +253,22 @@ void actions_do(t_player *p_player, enum action act_id)
                 {
                     for (int k = 0; k < 3; k++)
                     {
-                        world_paint_spot(bombes[i].x - 1 + j, bombes[i].y - 1 + k, bombes[i].couleur);
+                        uint32_t px = bombes[i].x - 1 + j;
+                        uint32_t py = bombes[i].y - 1 + k;
+                        if (px <= MAP_SIZE && py <= MAP_SIZE)
+                        {
+                            world_paint_spot(px, py, bombes[i].couleur);
+                        }
+                        else if (px > MAP_SIZE)
+                        {
+                            px = 1;
+                            world_paint_spot(px, py, bombes[i].couleur);
+                        }
+                        else if (py > MAP_SIZE)
+                        {
+                            py = 1;
+                            world_paint_spot(px, py, bombes[i].couleur);
+                        }
                     }
                 }
                 bombes[i].meche = 99; // Bombe deja pete donc set à valeur interdite

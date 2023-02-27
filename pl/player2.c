@@ -1,8 +1,9 @@
 #include "actions.h"
 #include <stdio.h>
-#define MAX_PLAY_ACTION 12
+#define MAX_PLAY_ACTION 13
 
 char play_actions[] = {
+    ACTION_STILL,
     ACTION_BOMB,
     ACTION_TELEPORT_L,
     ACTION_BOMB,
